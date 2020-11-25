@@ -113,19 +113,3 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-#btn_ring {
-    background-color: #218838;
-    color:#fefefe;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 50%;
-    height: 50px;
-    border-radius:1px solid #218838;
-}
-#btn_vibrate{
-    background-color: #f44335; 
-    color: #fefefe;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 50%;
-    height: 50px;
-    border-radius:1px solid #f44335;
-}

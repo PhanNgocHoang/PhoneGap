@@ -45,6 +45,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <title>Hello World</title>
+    <style>
+        #btn_ring {
+    background-color: #218838;
+    color:#fefefe;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 50%;
+    height: 50px;
+    border-radius:1px solid #218838;
+}
+#btn_vibrate{
+    background-color: #f44335; 
+    color: #fefefe;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 50%;
+    height: 50px;
+    border-radius:1px solid #f44335;
+}
+    </style>
 </head>
 
 <body>
@@ -57,26 +75,23 @@
     <script type="text/javascript">
         app.initialize();
         $(document).ready(function() {
-          $(document).on('click', '#btn_ring',function(event) {
-              event.preventDefault();
-            const confirmResult =  confirm('Do you want to rings');
-            if(confirmResult == true) {
-                const ringsNumber = prompt("How many times do you want to rings?")
-                if(ringsNumber <= 1) {
+          $(document).on('click', '#btn_ring',function() {//Create event click into button Rings
+            const confirmResult =  confirm('Do you want to rings');// Send a notification confirm to user
+            if(confirmResult == true) {// if user choose "Ok"
+                const ringsNumber = prompt("How many times do you want to rings?")//Send a prompt to get a time that the number of times wants rings
+                if(ringsNumber <= 0) {//  the user enters a number less than 1. The phone will ring once
                     navigator.notification.beep(1);
                 }
-                navigator.notification.beep(ringsNumber);
+                navigator.notification.beep(ringsNumber);// the phone rings according to the number of times the user enters
             }
           })
-          $(document).on('click', '#btn_vibrate',function(event) {
-              event.preventDefault();
-            const confirmResult =  confirm('Do you want to Vibrate');
-            if(confirmResult == true) {
-                const vibrateNumber = prompt("How many seconds do you want to vibrate?")
-                if(vibrateNumber <= 0) {
-                    navigator.notification.vibrate(1);
+          $(document).on('click', '#btn_vibrate',function() { //Create event click into button Vibrate
+            const confirmResult =  confirm('Do you want to Vibrate');// Send a notification confirm to user
+            if(confirmResult == true) {// if user choose "Ok"
+                const vibrateNumber = prompt("How many seconds do you want to vibrate?")//Send a prompt to get a time that users want vibrate
+                if(vibrateNumber > 0) {// The default unit is milliseconds
+                    navigator.notification.vibrate(vibrateNumber*1000);// change milliseconds to seconds to vibrate
                 }
-                navigator.notification.vibrate(vibrateNumber*1000);
             }
           })
       })
