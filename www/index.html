@@ -67,7 +67,7 @@
 
 <body>
     <div class="app">
-        <button id="btn_ring">Rings</button>
+        <button id="btn_ring">Ring</button>
         <button id="btn_vibrate">Vibrate</button>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
@@ -78,11 +78,11 @@
           $(document).on('click', '#btn_ring',function() {//Create event click into button Rings
             const confirmResult =  confirm('Do you want to rings');// Send a notification confirm to user
             if(confirmResult == true) {// if user choose "Ok"
-                const ringsNumber = prompt("How many times do you want to rings?")//Send a prompt to get a time that the number of times wants rings
+                const ringsNumber = prompt("How many times do you want to rings?")//Send a prompt to get a time that the number of times wants ring
                 if(ringsNumber <= 0) {//  the user enters a number less than 1. The phone will ring once
                     navigator.notification.beep(1);
                 }
-                navigator.notification.beep(ringsNumber);// the phone rings according to the number of times the user enters
+                navigator.notification.beep(ringsNumber);// the phone ring according to the number of times the user enters
             }
           })
           $(document).on('click', '#btn_vibrate',function() { //Create event click into button Vibrate
